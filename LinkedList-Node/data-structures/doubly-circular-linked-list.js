@@ -31,10 +31,12 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
     this.count++;
   }
 
+  // Falta alterar o insert
   insert(element, index) {
     if (index >= 0 && index <= this.count) {
       const node = new DoublyNode(element);
       let current = this.head;
+      let i = 0;
       if (index === 0) {
         if (this.head == null) {
           this.head = node;
