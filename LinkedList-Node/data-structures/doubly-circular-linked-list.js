@@ -9,7 +9,7 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
 
   push(element) {
     const node = new DoublyNode(element);
-    let current;
+    
     if (this.head == null) {
       this.head = node;
       this.tail = node;
@@ -31,12 +31,10 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
     this.count++;
   }
 
-  // Falta alterar o insert
   insert(element, index) {
     if (index >= 0 && index <= this.count) {
       const node = new DoublyNode(element);
       let current = this.head;
-      let i = 0;
       if (index === 0) {
         if (this.head == null) {
           this.head = node;
@@ -47,12 +45,14 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
           this.tail.prev = node;
         } else {
           node.next = current;
+          current.prev = node;
           current = this.getElementAt(this.size() - 1);
           // update last element
           this.head = node;
           current.next = this.head;
+          this.head.prev = this.tail;
         }
-      } else {
+      } else { // Falta fazer essa parte ainda!
         const previous = this.getElementAt(index - 1);
         node.next = previous.next;
         previous.next = node;
@@ -62,6 +62,38 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
     }
     return false;
   }
+
+  
+  // insert(element, index) {
+  //   if (index >= 0 && index <= this.count) {
+  //     const node = new DoublyNode(element);
+  //     let current = this.head;
+  //     if (index === 0) {
+  //       if (this.head == null) {
+  //         this.head = node;
+  //         this.tail = node;
+  //         this.head.next = node;
+  //         this.head.prev = this.tail;
+  //         this.tail.next = this.head;
+  //         this.tail.prev = node;
+  //       } else {
+  //         node.next = current; // O próximo desse novo nó é a cabeça atual
+  //         node.prev = current.prev;
+  //         current = this.getElementAt(this.size() - 1); // 
+  //         // update last element
+  //         this.head = node;
+  //         current.next = this.head;
+  //       }
+  //     } else {
+  //       const previous = this.getElementAt(index - 1);
+  //       node.next = previous.next;
+  //       previous.next = node;
+  //     }
+  //     this.count++;
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   removeAt(index) {
     if (index >= 0 && index < this.count) {
