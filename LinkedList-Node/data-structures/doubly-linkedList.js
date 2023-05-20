@@ -140,3 +140,21 @@ class DoublyLinkedList extends LinkedList {
 }
 
 module.exports = DoublyLinkedList;
+
+// let lista = new DoublyLinkedList();
+
+// console.log(lista.getHead());
+// console.log(lista.getTail());
+
+// lista.push(1);
+// lista.push(2);
+// lista.push(3);
+// console.log(lista.toString());
+
+// lista.removeAt(2);
+// lista.removeAt(1);
+// lista.toString();
+
+// lista.push(2);
+// lista.push(3);
+// console.log(lista.toString());

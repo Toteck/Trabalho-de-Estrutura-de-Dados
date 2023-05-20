@@ -74,4 +74,19 @@ class CircularLinkedList extends LinkedList {
   }
 }
 
-module.exports = CircularLinkedList;
+// module.exports = CircularLinkedList;
+
+// let lista = new CircularLinkedList();
+
+// lista.push(1);
+// lista.push(2);
+// lista.push(3);
+// console.log(lista.toString());
+
+// lista.removeAt(2);
+// lista.removeAt(1);
+// console.log(lista.toString());
+
+// lista.push(2);
+// lista.push(3);
+// console.log(lista.toString());
