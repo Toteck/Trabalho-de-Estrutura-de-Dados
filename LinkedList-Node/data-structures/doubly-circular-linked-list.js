@@ -10,20 +10,6 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
 
   push(element) {
     const node = new DoublyNode(element);
-    let current;
-    if (this.head == null) {
-      this.head = node;
-    } else {
-      current = this.getElementAt(this.size() - 1);
-      current.next = node;
-    }
-    // set node.next to head - to have circular list
-    node.next = this.head;
-    this.count++;
-  }
-
-  push(element) {
-    const node = new DoublyNode(element);
 
     if (this.head == null) {
       this.head = node;
@@ -33,16 +19,12 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
       this.tail.next = this.head;
       this.tail.prev = node;
     } else {
-      // current = this.getElementAt(this.size() - 1);
       this.tail.next = node;
       node.prev = this.tail;
       this.head.prev = node;
       node.next = this.head;
       this.tail = node;
     }
-    // // set node.next to head - to have circular list
-    // node.next = this.head;
-    // this.tail.next = this.head;
     this.count++;
   }
 
@@ -79,32 +61,6 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
     return false;
   }
 
-  /*removeAt(index) {
-    if (index >= 0 && index < this.count) {
-      let current = this.head;
-      if (index === 0) { // Caso deseja-se remover o elemento na posição 0
-        if (this.size() === 1) { // Se eu tiver somente 1 elemento na lista
-          this.head = undefined;
-        } else {
-          const removed = this.head;
-          current = this.getElementAt(this.size() - 1);
-          this.head = this.head.next;
-          current.next = this.head;
-          current = removed;
-          this.head.prev = this.tail;
-        }
-      } else {
-          // no need to update last element for circular list
-          const previous = this.getElementAt(index - 1);
-          current = previous.next;
-          previous.next = current.next;
-      }
-      this.count--;
-      return current.element;
-    }
-    return undefined;
-  }*/
-
   toString() {
     if (this.head == null) {
       return "";
@@ -134,28 +90,36 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
   }
 }
 
-// module.exports = DoublyCircularLinkedList;
+module.exports = DoublyCircularLinkedList;
 
-let lista = new DoublyCircularLinkedList();
+// let lista = new DoublyCircularLinkedList();
 
-console.log(lista.getHead())
-console.log(lista.getTail());
+// console.log(lista.getHead())
+// console.log(lista.getTail());
 
+// console.log("\n")
 
-lista.push(1);
-lista.push(2);
-lista.push(3);
-console.log(lista.toString());
-console.log(lista.inverseToString())
+// lista.push(1);
+// lista.push(2);
+// lista.push(3);
+// console.log(lista.toString());
+// console.log(lista.inverseToString())
 
-lista.removeAt(2);
-lista.removeAt(1);
-console.log(lista.toString());
+// console.log("\n")
 
-lista.push(2);
-lista.push(3);
-console.log(lista.toString());
-console.log(lista.inverseToString());
+// lista.removeAt(2);
+// lista.removeAt(1);
+// console.log(lista.toString());
 
-console.log(lista.getHead().element);
-console.log(lista.getTail().element);
+// console.log("\n")
+
+// lista.push(2);
+// lista.push(3);
+// console.log(lista.toString());
+// console.log(lista.inverseToString());
+
+// console.log(lista.getHead().element);
+// console.log(lista.getTail().element);
+
+// lista.insert(9, 2)
+// console.log(lista.toString())

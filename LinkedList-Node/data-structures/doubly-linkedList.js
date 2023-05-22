@@ -146,15 +146,19 @@ module.exports = DoublyLinkedList;
 // console.log(lista.getHead());
 // console.log(lista.getTail());
 
+// console.log("\n")
+
 // lista.push(1);
 // lista.push(2);
 // lista.push(3);
 // console.log(lista.toString());
 
-// lista.removeAt(2);
-// lista.removeAt(1);
-// lista.toString();
+// console.log("\n")
 
-// lista.push(2);
-// lista.push(3);
-// console.log(lista.toString());
+// console.log(lista.indexOf(2))
+// console.log(lista.indexOf(1))
+
+// console.log("\n")
+
+// lista.insert(8, 0)
+// console.log(lista.toString())

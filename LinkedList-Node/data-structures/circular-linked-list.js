@@ -83,10 +83,11 @@ class CircularLinkedList extends LinkedList {
 // lista.push(3);
 // console.log(lista.toString());
 
-// lista.removeAt(2);
+
 // lista.removeAt(1);
 // console.log(lista.toString());
 
-// lista.push(2);
-// lista.push(3);
+// lista.push(9);
+// lista.push(7);
 // console.log(lista.toString());
+
