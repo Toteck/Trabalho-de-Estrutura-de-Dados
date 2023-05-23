@@ -14,9 +14,8 @@ class DoublyLinkedList extends LinkedList {
     const node = new DoublyNode(element);
     if (this.head == null) {
       this.head = node;
-      this.tail = node; // NEW
-    } else {
-      // attach to the tail node // NEW
+      this.tail = node; 
+    } else { 
       this.tail.next = node;
       node.prev = this.tail;
       this.tail = node;
@@ -29,15 +28,15 @@ class DoublyLinkedList extends LinkedList {
       const node = new DoublyNode(element);
       let current = this.head;
       if (index === 0) {
-        if (this.head == null) { // NEW
+        if (this.head == null) { 
           this.head = node;
-          this.tail = node; // NEW
+          this.tail = node; 
         } else {
           node.next = this.head;
-          this.head.prev = node; // NEW
+          this.head.prev = node; 
           this.head = node;
         }
-      } else if (index === this.count) { // last item NEW
+      } else if (index === this.count) { 
         current = this.tail;
         current.next = node;
         node.prev = current;
@@ -47,8 +46,8 @@ class DoublyLinkedList extends LinkedList {
         current = previous.next;
         node.next = current;
         previous.next = node;
-        current.prev = node; // NEW
-        node.prev = previous; // NEW
+        current.prev = node; 
+        node.prev = previous; 
       }
       this.count++;
       return true;
@@ -60,25 +59,26 @@ class DoublyLinkedList extends LinkedList {
     if (index >= 0 && index < this.count) {
       let current = this.head;
       if (index === 0) {
-        this.head = this.head.next;
-        // if there is only one item, then we update tail as well //NEW
+        this.head = this.head.next; 
         if (this.count === 1) {
-          // {2}
           this.tail = undefined;
         } else {
           this.head.prev = undefined;
         }
-      } else if (index === this.count - 1) {
-        // last item //NEW
+      } 
+      
+      else if (index === this.count - 1) {
         current = this.tail;
         this.tail = current.prev;
         this.tail.next = undefined;
-      } else {
+      } 
+        
+      else {
         current = this.getElementAt(index);
         const previous = current.prev;
-        // link previous with current's next - skip it to remove
+       
         previous.next = current.next;
-        current.next.prev = previous; // NEW
+        current.next.prev = previous; 
       }
       this.count--;
       return current.element;
@@ -145,6 +145,7 @@ module.exports = DoublyLinkedList;
 
 // console.log(lista.getHead());
 // console.log(lista.getTail());
+// console.log(lista)
 
 // console.log("\n")
 
@@ -158,7 +159,25 @@ module.exports = DoublyLinkedList;
 // console.log(lista.indexOf(2))
 // console.log(lista.indexOf(1))
 
+
+// console.log("\n")
+
+// lista.insert(5, 3)
+// console.log(lista.toString())
+
+// lista.insert(7, 1)
+// console.log(lista.toString())
+
 // console.log("\n")
 
 // lista.insert(8, 0)
+// console.log(lista.toString())
+
+// lista.removeAt(5)
+// console.log(lista.toString())
+// lista.removeAt(0)
+// console.log("\n")
+// console.log(lista.toString())
+
+// lista.removeAt(1)
 // console.log(lista.toString())

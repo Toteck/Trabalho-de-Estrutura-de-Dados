@@ -51,9 +51,12 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
         }
       } else {
         const previous = this.getElementAt(index - 1);
+        
         node.next = previous.next;
         node.prev = previous;
+        previous.next.prev = node;
         previous.next = node;
+        
       }
       this.count++;
       return true;
@@ -90,36 +93,38 @@ class DoublyCircularLinkedList extends DoublyLinkedList {
   }
 }
 
-module.exports = DoublyCircularLinkedList;
+// module.exports = DoublyCircularLinkedList;
 
-// let lista = new DoublyCircularLinkedList();
+let lista = new DoublyCircularLinkedList();
 
-// console.log(lista.getHead())
-// console.log(lista.getTail());
+console.log(lista.getHead())
+console.log(lista.getTail());
 
-// console.log("\n")
+console.log("\n")
 
-// lista.push(1);
-// lista.push(2);
-// lista.push(3);
-// console.log(lista.toString());
-// console.log(lista.inverseToString())
+lista.push(1);
+lista.push(2);
+lista.push(3);
+console.log(lista.toString());
+lista.insert(4, 1)
+console.log(lista.toString());
+console.log(lista.inverseToString())
 
-// console.log("\n")
+console.log("\n")
 
-// lista.removeAt(2);
-// lista.removeAt(1);
-// console.log(lista.toString());
+console.log(lista.removeAt(2));
+console.log(lista.removeAt(1));
+console.log(lista.toString());
 
-// console.log("\n")
+console.log("\n")
 
-// lista.push(2);
-// lista.push(3);
-// console.log(lista.toString());
-// console.log(lista.inverseToString());
+lista.push(2);
+lista.push(3);
+console.log(lista.toString());
+console.log(lista.inverseToString());
 
-// console.log(lista.getHead().element);
-// console.log(lista.getTail().element);
+console.log(lista.getHead().element);
+console.log(lista.getTail().element);
 
-// lista.insert(9, 2)
-// console.log(lista.toString())
+lista.insert(9, 2)
+console.log(lista.toString())
